@@ -1,54 +1,54 @@
-/*
+package ru.niatomi.dao;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package musicplayersql.Classes.Generics;
 
-import musicplayersql.Classes.Substanses.Genre;
+import musicplayersql.Classes.Substanses.Artist;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Niatomi
  */
-public class GenreDAO implements GenericDAO<Short, Genre>{
-    
-    private static final String UPDATE_QUERY = "UPDATE GENRE SET "
+public class ArtistDAO implements GenericDAO<Short, Artist> {
+    private static final String UPDATE_QUERY = "UPDATE ARTIST SET "
             + "NAME = ? "
             + "WHERE ID = ?";
-    private static final String SELECT = "SELECT * FROM GENRE";
+    private static final String SELECT = "SELECT * FROM ARTIST";
     private static final String SELECT_OFFSET_LIMIT = "SELECT "
             + "ID, "
             + "NAME "
-            + "FROM GENRE "
+            + "FROM ARTIST "
             + "OFFSET ? ROWS "
             + "FETCH FIRST ? ROWS ONLY";
     private static final String FIND_BY_KEY = "SELECT "
             + "ID, "
             + "NAME "
-            + "FROM GENRE "
+            + "FROM ARTIST "
             + "WHERE ID = ?";
-    private static final String DELETE_BY_KEY = "DELETE FROM GENRE "
+    private static final String DELETE_BY_KEY = "DELETE FROM ARTIST "
             + "WHERE ID = ?";
-    private static final String INSERT = "INSERT INTO GENRE (NAME)" +
+    private static final String INSERT = "INSERT INTO ARTIST (NAME)" +
                                          " VALUES (?)";
-    private static final String CREATE ="CREATE TABLE GENRE (" +
+    private static final String CREATE ="CREATE TABLE ARTIST (" +
             " ID INT GENERATED ALWAYS AS IDENTITY," +
-            " NAME VARCHAR(15) NOT NULL," +
+            " NAME VARCHAR(30) NOT NULL," +
             " PRIMARY KEY (ID)," +
             " UNIQUE(NAME)" +
             " )";
-    private static final String DROP = "DROP TABLE GENRE";
+    private static final String DROP = "DROP TABLE ARTIST";
     
     private String url;
     private String login;
     private String password;
     
-    public GenreDAO(String url, String login, String password) {
+    public ArtistDAO(String url, String login, String password) {
         this.url = url;
         this.login = login;
         this.password = password;
@@ -58,24 +58,24 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
         return DriverManager.getConnection(url, login, password);
     }
     
-    private Genre parseGenre(ResultSet result) throws SQLException {
-        Genre genre = new Genre();
-        genre.setId(result.getInt(1));
-        genre.setName(result.getString(2));
-        return genre;
+    private Artist parseArtist(ResultSet result) throws SQLException {
+        Artist artist = new Artist();
+        artist.setId(result.getInt(1));
+        artist.setName(result.getString(2));
+        return artist;
     }
     
-    private List<Genre> parseList(ResultSet result) throws SQLException {
-        List<Genre> genre = new ArrayList<>();
+    private List<Artist> parseList(ResultSet result) throws SQLException {
+        List<Artist> artist = new ArrayList<>();
         while (result.next()) {
-            genre.add(parseGenre(result));
+            artist.add(parseArtist(result));
         }
-        return genre;
+        return artist;
     }
 
     @Override
     public void create() {
-        System.out.println("Creating new genre table...");
+        System.out.println("Creating new Artist table...");
         Connection connection = null;
         Statement statement = null;
         try {
@@ -88,7 +88,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
                 System.err.println("Table already exist...");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(GenreDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ArtistDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if(statement !=null){
@@ -102,7 +102,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
     }
 
     @Override
-    public List<Genre> select() {
+    public List<Artist> select() {
         System.out.println("Selecting table elements...");
         PreparedStatement statement = null;
         ResultSet result = null;
@@ -130,7 +130,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
     }
 
     @Override
-    public List<Genre> select(int offset, int limit) {
+    public List<Artist> select(int offset, int limit) {
         System.out.println("Selecting table elements by offset...");
         PreparedStatement statement = null;
         ResultSet result = null;
@@ -160,7 +160,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
     }
 
     @Override
-    public Genre findByKey(Short key) {
+    public Artist findByKey(Short key) {
         System.out.println("Finding by key...");
         PreparedStatement statement = null;
         ResultSet result = null;
@@ -171,7 +171,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
             statement.setInt(1, key);
             result = statement.executeQuery();
             result.next();
-            return parseGenre(result);
+            return parseArtist(result);
         } catch (SQLException e) {
         } finally {
             try {
@@ -214,7 +214,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
     }
 
     @Override
-    public boolean insert(Genre item) {
+    public boolean insert(Artist item) {
         System.out.println("Inserting element...");
         PreparedStatement statement = null;
         Connection connection = null;
@@ -238,7 +238,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
     }
 
     @Override
-    public boolean update(Integer key, Genre item) {
+    public boolean update(Integer key, Artist item) {
         System.out.println("Updating element...");
         PreparedStatement statement = null;
         Connection connection = null;
@@ -278,7 +278,7 @@ public class GenreDAO implements GenericDAO<Short, Genre>{
                 System.err.println("No table to delete...");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(GenreDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ArtistDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if(statement !=null){
