@@ -6,8 +6,6 @@
 package musicplayersql.Classes.VIEW;
 
 import musicplayersql.Classes.Generics.ArtistDAO;
-import musicplayersql.Classes.Generics.GenreDAO;
-import musicplayersql.Classes.Generics.SongDAO;
 
 /**
  *
@@ -16,14 +14,14 @@ import musicplayersql.Classes.Generics.SongDAO;
 public interface Viewable {
     
     /**
-     * Создание представления объединяющее Song, Artist, Genre.
+     * Создание представления объединяющее ru.niatomi.Substanses.impl.Song, Artist, Genre.
      * @return 
      */
-    void song_view();
+    void songView();
     
     /**
      * Создание представления объединяющее Plalist_Songs, Song_View.
      * @return 
      */
-    void playlist_song_view();
+    void playlistSongView();
 }
