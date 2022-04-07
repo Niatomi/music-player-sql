@@ -1,17 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package musicplayersql.Classes.Generator;
+package ru.niatomi.generator;
 
-import musicplayersql.Classes.Generics.ArtistDAO;
-import musicplayersql.Classes.Generics.GenreDAO;
-import musicplayersql.Classes.Generics.PlaylistDAO;
-import musicplayersql.Classes.Generics.SongDAO;
+import ru.niatomi.dao.impl.ArtistDAO;
+import ru.niatomi.dao.impl.GenreDAO;
+import ru.niatomi.dao.impl.PlaylistDAO;
+import ru.niatomi.dao.impl.SongDAO;
 
 /**
- *
  * @author Niatomi
  */
 public interface Generatable {
@@ -29,7 +23,7 @@ public interface Generatable {
     void generate(GenreDAO dao);
     
     /**
-     * Создание набора данных для класса Song.
+     * Создание набора данных для класса ru.niatomi.Substanses.impl.Song.
      * @return 
      */
     void generate(SongDAO dao);

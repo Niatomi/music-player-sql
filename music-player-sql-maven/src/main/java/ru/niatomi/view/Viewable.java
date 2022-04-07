@@ -1,11 +1,6 @@
-package ru.niatomi.view;/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+package ru.niatomi.view;
 
 /**
- *
  * @author Niatomi
  */
 public interface Viewable {

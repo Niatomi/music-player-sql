@@ -8,7 +8,6 @@ import ru.niatomi.models.Playable;
 import java.util.List;
 
 /**
- *
  * @author Niatomi
  */
 @Data
