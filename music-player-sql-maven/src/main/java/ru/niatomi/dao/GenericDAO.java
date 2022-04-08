@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author Niatomi
  */
-public interface GenericDAO<Key, Item> {
+public interface GenericDAO<Integer, Item> {
 
     /**
      * Запрос всех данных.
@@ -26,14 +26,14 @@ public interface GenericDAO<Key, Item> {
      * @param key
      * @return 
      */
-    Item findByKey(Key key);
+    Item findByKey(Integer key);
     
     /**
         * Удаление объекта по ключу.
      * @param key
      * @return 
      */
-    void removeByKey(Key key);
+    void removeByKey(Integer key);
     
     /**
      * Добавление объекта.
@@ -48,4 +48,6 @@ public interface GenericDAO<Key, Item> {
      * @return 
      */
     void update(Integer key, Item item);
+
+    void create(Item item);
 }
