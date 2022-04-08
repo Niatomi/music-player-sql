@@ -1,13 +1,17 @@
 package ru.niatomi;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 /**
  * @author niatomi
  */
+@SpringBootApplication
 public class MusicPlayerSQL {
     public static void main(String[] args) {
-        System.out.println(123);
+        SpringApplication.run(MusicPlayerSQL.class, args);
     }
-
+}
 //    //Практика 11
 //    //Основыне обекты
 //
@@ -88,4 +92,4 @@ public class MusicPlayerSQL {
 //        System.out.println(song_dao.removeByKey(10000010));
 //        System.out.println(song_dao.findSongsByArtist(6));
 
-}
+
