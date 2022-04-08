@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.niatomi.dao.GenericDAO;
 import ru.niatomi.models.impl.Playlist;
@@ -14,6 +16,9 @@ import ru.niatomi.models.impl.Playlist;
 @Component
 @AllArgsConstructor
 public class PlaylistDAO implements GenericDAO<Integer, Playlist> {
+
+    @Autowired
+    private final JdbcTemplate jdbcTemplate;
     
     private static final String CREATE_1 ="CREATE TABLE PLAYLIST (" +
             " ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1000, INCREMENT BY 1)," +
@@ -87,14 +92,6 @@ public class PlaylistDAO implements GenericDAO<Integer, Playlist> {
             + "NAME = ? ,"
             + "AUDITIONS = ? "
             + "WHERE ID = ?";
-    
-    private String url;
-    private String login;
-    private String password;
-    
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, login, password);
-    }
 
     @Override
     public List<Playlist> select() {
@@ -107,12 +104,12 @@ public class PlaylistDAO implements GenericDAO<Integer, Playlist> {
     }
 
     @Override
-    public Playlist findByKey(Integer integer) {
+    public Playlist findByKey(Integer key) {
         return null;
     }
 
     @Override
-    public void removeByKey(Integer integer) {
+    public void removeByKey(Integer key) {
 
     }
 
@@ -126,5 +123,8 @@ public class PlaylistDAO implements GenericDAO<Integer, Playlist> {
 
     }
 
+    @Override
+    public void create(Playlist playlist) {
 
+    }
 }

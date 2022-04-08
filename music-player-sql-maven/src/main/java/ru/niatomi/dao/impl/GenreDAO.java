@@ -1,6 +1,8 @@
 package ru.niatomi.dao.impl;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.niatomi.dao.GenericDAO;
 import ru.niatomi.models.impl.Genre;
@@ -13,8 +15,11 @@ import java.util.List;
  */
 @Component
 @AllArgsConstructor
-public class GenreDAO implements GenericDAO<Short, Genre> {
-    
+public class GenreDAO implements GenericDAO<Integer, Genre> {
+
+    @Autowired
+    private final JdbcTemplate jdbcTemplate;
+
     private static final String UPDATE_QUERY = "UPDATE GENRE SET "
             + "NAME = ? "
             + "WHERE ID = ?";
@@ -41,14 +46,7 @@ public class GenreDAO implements GenericDAO<Short, Genre> {
             " UNIQUE(NAME)" +
             " )";
     private static final String DROP = "DROP TABLE GENRE";
-    
-    private String url;
-    private String login;
-    private String password;
-    
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(url, login, password);
-    }
+
 
     @Override
     public List<Genre> select() {
@@ -61,12 +59,12 @@ public class GenreDAO implements GenericDAO<Short, Genre> {
     }
 
     @Override
-    public Genre findByKey(Short aShort) {
+    public Genre findByKey(Integer key) {
         return null;
     }
 
     @Override
-    public void removeByKey(Short aShort) {
+    public void removeByKey(Integer key) {
 
     }
 
@@ -80,5 +78,8 @@ public class GenreDAO implements GenericDAO<Short, Genre> {
 
     }
 
+    @Override
+    public void create(Genre genre) {
 
+    }
 }

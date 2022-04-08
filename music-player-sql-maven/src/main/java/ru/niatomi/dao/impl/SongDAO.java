@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.niatomi.dao.GenericDAO;
 import ru.niatomi.models.impl.Song;
@@ -14,6 +16,9 @@ import ru.niatomi.models.impl.Song;
 @Component
 @AllArgsConstructor
 public class SongDAO implements GenericDAO<Integer, Song> {
+
+    @Autowired
+    private final JdbcTemplate jdbcTemplate;
     
     private static final String UPDATE_QUERY_SONG_ID = "UPDATE SONG SET "
             + "SONG.NAME = ? , "
@@ -81,10 +86,6 @@ public class SongDAO implements GenericDAO<Integer, Song> {
         ")";
     
     private static final String DROP = "DROP TABLE SONG";
-    
-    private String url;
-    private String login;
-    private String password;
 
     @Override
     public List<Song> select() {
@@ -97,12 +98,12 @@ public class SongDAO implements GenericDAO<Integer, Song> {
     }
 
     @Override
-    public Song findByKey(Integer integer) {
+    public Song findByKey(Integer key) {
         return null;
     }
 
     @Override
-    public void removeByKey(Integer integer) {
+    public void removeByKey(Integer key) {
 
     }
 
@@ -116,5 +117,8 @@ public class SongDAO implements GenericDAO<Integer, Song> {
 
     }
 
+    @Override
+    public void create(Song song) {
 
+    }
 }
