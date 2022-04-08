@@ -6,19 +6,7 @@ import java.util.List;
  * @author Niatomi
  */
 public interface GenericDAO<Key, Item> {
-    
-    /**
-     * Создание базы данных.
-     * @return 
-     */
-    void create();
-    
-    /**
-     * Создание базы данных.
-     * @return 
-     */
-    void drop();
-    
+
     /**
      * Запрос всех данных.
      * @return 
@@ -45,19 +33,19 @@ public interface GenericDAO<Key, Item> {
      * @param key
      * @return 
      */
-    boolean removeByKey(Key key);
+    void removeByKey(Key key);
     
     /**
      * Добавление объекта.
      * @param item
      * @return 
      */
-    boolean insert(Item item);
+    void insert(Item item);
     
     /**
      * Обновление объекта.
      * @param item
      * @return 
      */
-    boolean update(Integer key, Item item);
+    void update(Integer key, Item item);
 }
