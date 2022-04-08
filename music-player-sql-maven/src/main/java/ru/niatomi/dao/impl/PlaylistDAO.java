@@ -97,16 +97,6 @@ public class PlaylistDAO implements GenericDAO<Integer, Playlist> {
     }
 
     @Override
-    public void create() {
-
-    }
-
-    @Override
-    public void drop() {
-
-    }
-
-    @Override
     public List<Playlist> select() {
         return null;
     }
@@ -122,18 +112,19 @@ public class PlaylistDAO implements GenericDAO<Integer, Playlist> {
     }
 
     @Override
-    public boolean removeByKey(Integer integer) {
-        return false;
+    public void removeByKey(Integer integer) {
+
     }
 
     @Override
-    public boolean insert(Playlist playlist) {
-        return false;
+    public void insert(Playlist playlist) {
+
     }
 
     @Override
-    public boolean update(Integer key, Playlist playlist) {
-        return false;
+    public void update(Integer key, Playlist playlist) {
+
     }
+
 
 }

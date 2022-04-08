@@ -51,16 +51,6 @@ public class GenreDAO implements GenericDAO<Short, Genre> {
     }
 
     @Override
-    public void create() {
-
-    }
-
-    @Override
-    public void drop() {
-
-    }
-
-    @Override
     public List<Genre> select() {
         return null;
     }
@@ -76,18 +66,19 @@ public class GenreDAO implements GenericDAO<Short, Genre> {
     }
 
     @Override
-    public boolean removeByKey(Short aShort) {
-        return false;
+    public void removeByKey(Short aShort) {
+
     }
 
     @Override
-    public boolean insert(Genre genre) {
-        return false;
+    public void insert(Genre genre) {
+
     }
 
     @Override
-    public boolean update(Integer key, Genre genre) {
-        return false;
+    public void update(Integer key, Genre genre) {
+
     }
-    
+
+
 }

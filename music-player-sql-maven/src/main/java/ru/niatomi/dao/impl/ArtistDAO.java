@@ -52,16 +52,6 @@ public class ArtistDAO implements GenericDAO<Short, Artist> {
     }
 
     @Override
-    public void create() {
-
-    }
-
-    @Override
-    public void drop() {
-
-    }
-
-    @Override
     public List<Artist> select() {
         return null;
     }
@@ -77,18 +67,19 @@ public class ArtistDAO implements GenericDAO<Short, Artist> {
     }
 
     @Override
-    public boolean removeByKey(Short aShort) {
-        return false;
+    public void removeByKey(Short aShort) {
+
     }
 
     @Override
-    public boolean insert(Artist artist) {
-        return false;
+    public void insert(Artist artist) {
+
     }
 
     @Override
-    public boolean update(Integer key, Artist artist) {
-        return false;
+    public void update(Integer key, Artist artist) {
+
     }
-    
+
+
 }

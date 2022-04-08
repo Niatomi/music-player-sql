@@ -87,16 +87,6 @@ public class SongDAO implements GenericDAO<Integer, Song> {
     private String password;
 
     @Override
-    public void create() {
-
-    }
-
-    @Override
-    public void drop() {
-
-    }
-
-    @Override
     public List<Song> select() {
         return null;
     }
@@ -112,18 +102,19 @@ public class SongDAO implements GenericDAO<Integer, Song> {
     }
 
     @Override
-    public boolean removeByKey(Integer integer) {
-        return false;
+    public void removeByKey(Integer integer) {
+
     }
 
     @Override
-    public boolean insert(Song song) {
-        return false;
+    public void insert(Song song) {
+
     }
 
     @Override
-    public boolean update(Integer key, Song song) {
-        return false;
+    public void update(Integer key, Song song) {
+
     }
-    
+
+
 }
