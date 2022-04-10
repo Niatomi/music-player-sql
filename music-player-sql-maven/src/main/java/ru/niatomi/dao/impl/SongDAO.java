@@ -69,23 +69,6 @@ public class SongDAO implements GenericDAO<Integer, Song> {
     
     private static final String INSERT = "INSERT INTO STUD.SONG (NAME, ARTIST_ID, GENRE_ID, AUDITIONS)" +
                                          " VALUES (?, ?, ?, ?)";
-    
-    private static final String CREATE ="CREATE TABLE SONG(" +
-        " ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH" +
-        " 10000000, INCREMENT BY 1)," +
-        " NAME VARCHAR(30) NOT NULL," +
-        " ARTIST_ID INTEGER NOT NULL," +
-        " GENRE_ID INTEGER NOT NULL," +
-        " AUDITIONS INTEGER DEFAULT 0," +
-        " CONSTRAINT PK_SONG_ID PRIMARY KEY(ID)," +
-        " CONSTRAINT FK_SONG_ARTIST_ID FOREIGN KEY(ARTIST_ID) REFERENCES" +
-        " ARTIST(ID)," +
-        " CONSTRAINT FK_SONG_GENRE_ID FOREIGN KEY(GENRE_ID) REFERENCES" +
-        " GENRE(ID)," +
-        " CONSTRAINT CK_SONG_AUDITIONS CHECK(AUDITIONS >= 0)" +
-        ")";
-    
-    private static final String DROP = "DROP TABLE SONG";
 
     @Override
     public List<Song> select() {

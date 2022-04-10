@@ -2,6 +2,7 @@ package ru.niatomi.dao.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.niatomi.dao.GenericDAO;
@@ -39,18 +40,10 @@ public class GenreDAO implements GenericDAO<Integer, Genre> {
             + "WHERE ID = ?";
     private static final String INSERT = "INSERT INTO GENRE (NAME)" +
                                          " VALUES (?)";
-    private static final String CREATE ="CREATE TABLE GENRE (" +
-            " ID INT GENERATED ALWAYS AS IDENTITY," +
-            " NAME VARCHAR(15) NOT NULL," +
-            " PRIMARY KEY (ID)," +
-            " UNIQUE(NAME)" +
-            " )";
-    private static final String DROP = "DROP TABLE GENRE";
-
 
     @Override
     public List<Genre> select() {
-        return null;
+        return jdbcTemplate.query(SELECT, new BeanPropertyRowMapper<>(Genre.class));
     }
 
     @Override
@@ -60,7 +53,10 @@ public class GenreDAO implements GenericDAO<Integer, Genre> {
 
     @Override
     public Genre findByKey(Integer key) {
-        return null;
+        return jdbcTemplate.query(FIND_BY_KEY, new Object[]{key}, new BeanPropertyRowMapper<>(Genre.class))
+                .stream()
+                .findAny()
+                .orElse(null);
     }
 
     @Override

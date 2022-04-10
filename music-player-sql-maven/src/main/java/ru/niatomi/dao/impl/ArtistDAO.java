@@ -42,13 +42,7 @@ public class ArtistDAO implements GenericDAO<Integer, Artist> {
             + "WHERE ID = ?";
     private static final String INSERT = "INSERT INTO ARTIST (NAME)" +
                                          " VALUES (?)";
-    private static final String CREATE ="CREATE TABLE ARTIST (" +
-            " ID INT GENERATED ALWAYS AS IDENTITY," +
-            " NAME VARCHAR(30) NOT NULL," +
-            " PRIMARY KEY (ID)," +
-            " UNIQUE(NAME)" +
-            " )";
-    private static final String DROP = "DROP TABLE ARTIST";
+
 
     @Override
     public List<Artist> select() {
