@@ -61,16 +61,16 @@ public class ArtistDAO implements GenericDAO<Integer, Artist> {
     }
 
     @Override
-    public Artist findByKey(Integer aShort) {
-        return jdbcTemplate.query(FIND_BY_KEY, new Object[]{aShort}, new BeanPropertyRowMapper<>(Artist.class))
+    public Artist findByKey(Integer key) {
+        return jdbcTemplate.query(FIND_BY_KEY, new Object[]{key}, new BeanPropertyRowMapper<>(Artist.class))
                 .stream()
                 .findAny()
                 .orElse(null);
     }
 
     @Override
-    public void removeByKey(Integer aShort) {
-        jdbcTemplate.update(REMOVE_BY_KEY, aShort);
+    public void removeByKey(Integer key) {
+        jdbcTemplate.update(REMOVE_BY_KEY, key);
     }
 
     @Override
