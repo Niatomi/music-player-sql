@@ -1,0 +1,14 @@
+server:
+  port: ${server_port:8080}
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: person_service
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:8080/music_player_db
+    username: postgres
+    password: admin
+    driverClassName: org.postgresql.Driver
