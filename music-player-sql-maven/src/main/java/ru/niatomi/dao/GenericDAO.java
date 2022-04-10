@@ -11,7 +11,7 @@ public interface GenericDAO<Integer, Item> {
      * Запрос всех данных.
      * @return 
      */
-    List<Item> select();
+    List<Item> selectWithOffset();
     
     /**
      * Запрос данных ограниченного количества данных с сдвигом.
@@ -19,7 +19,7 @@ public interface GenericDAO<Integer, Item> {
      * @param limit
      * @return 
      */
-    List<Item> select(int offset, int limit);
+    List<Item> selectWithOffset(int offset, int limit);
     
     /**
      * Получение объекта по ключу.
