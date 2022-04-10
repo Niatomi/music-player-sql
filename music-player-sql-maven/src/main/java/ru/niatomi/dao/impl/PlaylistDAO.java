@@ -99,7 +99,7 @@ public class PlaylistDAO implements GenericDAO<Integer, Playlist> {
     }
 
     @Override
-    public List<Playlist> select(int offset, int limit) {
+    public List<Playlist> selectWithOffset(int offset, int limit) {
         return null;
     }
 

@@ -54,8 +54,8 @@ public class GenreDAO implements GenericDAO<Integer, Genre> {
     }
 
     @Override
-    public List<Genre> select(int offset, int limit) {
-        return null;
+    public List<Genre> selectWithOffset(int offset, int limit) {
+        return jdbcTemplate.query(SELECT_OFFSET_LIMIT, new Object[]{offset, limit}, new BeanPropertyRowMapper<>(Genre.class));
     }
 
     @Override

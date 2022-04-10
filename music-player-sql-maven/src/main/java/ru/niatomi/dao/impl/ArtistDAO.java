@@ -56,7 +56,7 @@ public class ArtistDAO implements GenericDAO<Integer, Artist> {
     }
 
     @Override
-    public List<Artist> select(int offset, int limit) {
+    public List<Artist> selectWithOffset(int offset, int limit) {
         return jdbcTemplate.query(SELECT_OFFSET_LIMIT, new Object[]{offset, limit}, new BeanPropertyRowMapper<>(Artist.class));
     }
 

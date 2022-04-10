@@ -93,7 +93,7 @@ public class SongDAO implements GenericDAO<Integer, Song> {
     }
 
     @Override
-    public List<Song> select(int offset, int limit) {
+    public List<Song> selectWithOffset(int offset, int limit) {
         return null;
     }
 
