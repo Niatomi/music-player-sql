@@ -4,11 +4,22 @@ server:
     context-path: /api
 spring:
   application:
-    name: person_service
+    name: music_player
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect=org:
+          hibernate:
+            dialect: PostgreSQLDialect
   datasource:
     url: jdbc:postgresql://localhost:8080/music_player_db
     username: postgres
     password: admin
     driverClassName: org.postgresql.Driver
+  postgres:
+    console:
+      enabled: true
+      path: /postgres
