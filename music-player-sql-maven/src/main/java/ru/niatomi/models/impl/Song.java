@@ -19,17 +19,6 @@ import javax.validation.constraints.Positive;
 @Table(name = "song")
 public class Song implements Playable {
 
-    private static final String CREATE ="CREATE TABLE SONG(" +
-
-
-            " CONSTRAINT PK_SONG_ID PRIMARY KEY(ID)," +
-            " CONSTRAINT FK_SONG_ARTIST_ID FOREIGN KEY(ARTIST_ID) REFERENCES" +
-            " ARTIST(ID)," +
-            " CONSTRAINT FK_SONG_GENRE_ID FOREIGN KEY(GENRE_ID) REFERENCES" +
-            " GENRE(ID)," +
-            " CONSTRAINT CK_SONG_AUDITIONS CHECK(AUDITIONS >= 0)" +
-            ")";
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "song_id")
