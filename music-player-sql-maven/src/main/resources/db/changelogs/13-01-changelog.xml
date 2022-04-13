@@ -75,12 +75,52 @@
                                  referencedColumnNames="song_id" referencedTableName="song"/>
     </changeSet>
     <changeSet id="insert-data" author="niatomi" context="test">
-        <insert tableName="person_table">
+        <insert tableName="artist">
             <column name="id" value="1"/>
-            <column name="first_name" value="Egor"/>
-            <column name="last_name" value="Ivanov"/>
-            <column name="middle_name" value="Ivanovich"/>
-            <column name="age" valueNumeric="20"/>
+            <column name="name" value="Metallica"/>
         </insert>
+        <insert tableName="artist">
+            <column name="id" value="2"/>
+            <column name="name" value="Pink Floyd"/>
+        </insert>
+        <insert tableName="artist">
+            <column name="id" value="3"/>
+            <column name="name" value="Megadeth"/>
+        </insert>
+    </changeSet>
+    <changeSet id="insert-data1" author="niatomi" context="test">
+        <insert tableName="artist">
+            <column name="id" value="4"/>
+            <column name="name" value="Gojira"/>
+        </insert>
+        <insert tableName="artist">
+            <column name="id" value="5"/>
+            <column name="name" value="Plini"/>
+        </insert>
+        <insert tableName="artist">
+            <column name="id" value="6"/>
+            <column name="name" value="Dream Theather"/>
+        </insert>
+    </changeSet>
+    <changeSet id="insert-genre" author="niatomi">
+        <insert tableName="genre">
+            <column name="id" value="1"/>
+            <column name="name" value="Metal"/>
+        </insert>
+        <insert tableName="genre">
+            <column name="id" value="2"/>
+            <column name="name" value="Rock"/>
+        </insert>
+        <insert tableName="genre">
+            <column name="id" value="3"/>
+            <column name="name" value="Death-Metal"/>
+        </insert>
+        <insert tableName="genre">
+            <column name="id" value="4"/>
+            <column name="name" value="Prog"/>
+        </insert>
+    </changeSet>
+    <changeSet id="" author="">
+        <
     </changeSet>
 </databaseChangeLog>
