@@ -13,7 +13,6 @@ import javax.sql.DataSource;
  * @author niatomi
  */
 @Configuration
-
 public class SpringConfig {
 
     private final ApplicationContext applicationContext;
