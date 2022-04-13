@@ -15,6 +15,8 @@ import javax.validation.constraints.Positive;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name = "song")
 public class Song implements Playable {
 
     private static final String CREATE ="CREATE TABLE SONG(" +
@@ -30,6 +32,7 @@ public class Song implements Playable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "song_id")
     private int id;
 
     @Column(length = 30)
@@ -39,14 +42,12 @@ public class Song implements Playable {
     @Positive
     private int auditions;
 
-//    @OneToOne
-//    @JoinColumn(name = "artist_id")
-//    @Column(name = "artist")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "artist_id", referencedColumnName = "id")
     private Artist artist;
 
-//    @OneToOne
-//    @JoinColumn(name = "genre_id")
-//    @Column(name = "genre")
+    @OneToOne
+    @JoinColumn(name = "genre_id", referencedColumnName = "id")
     private Genre genre;
 
     @Override
