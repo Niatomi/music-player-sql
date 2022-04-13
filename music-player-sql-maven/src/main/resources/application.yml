@@ -23,3 +23,6 @@ spring:
     console:
       enabled: true
       path: /postgres
+  liquibase:
+    changeLog: classpath:/db/changelogs/13-01-changelog.xml
+    contexts: test
