@@ -228,24 +228,40 @@
         </insert>
     </changeSet>
 
-</databaseChangeLog>
+    <changeSet id="delete-auditions-column-in-playlist" author="niatomi">
+        <dropColumn tableName="playlist" columnName="auditions"/>
+    </changeSet>
+    
+    <changeSet id="change-song_id-unique" author="niatomi">
+      <dropColumn tableName="playlist" columnName="name"/>
+        <addColumn tableName="playlist">
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
 
-<!--        //    @Override-->
-<!--        //    public void generate(PlaylistDAO dao) {-->
-<!--        //        List<Integer> metal = new ArrayList<>();-->
-<!--    //        List<Integer> prog = new ArrayList<>();-->
-<!--        //        List<Integer> death = new ArrayList<>();-->
-<!--            //        metal.add(10000000);-->
-<!--            //        metal.add(10000001);-->
-<!--            //        metal.add(10000003);-->
-<!--            //        metal.add(10000004);-->
-<!--            //        prog.add(10000002);-->
-<!--            //        prog.add(10000007);-->
-<!--            //        prog.add(10000008);-->
-<!--            //        prog.add(10000009);-->
-<!--            //        death.add(10000006);-->
-<!--            //        death.add(10000005);-->
-<!--            //        dao.insert(new Playlist("Metal", metal, 10));-->
-<!--            //        dao.insert(new Playlist("Progressive", prog, 10));-->
-<!--            //        dao.insert(new Playlist("Death-Metal", death, 10));-->
-<!--            //    }-->
+    </changeSet>
+
+    <changeSet id="insert-playlist-data" author="niatomi">
+        <insert tableName="playlist">
+            <column name="id" value="1"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="1"/>
+        </insert>
+        <insert tableName="playlist">
+            <column name="id" value="2"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="2"/>
+        </insert>
+        <insert tableName="playlist">
+            <column name="id" value="3"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="4"/>
+        </insert>
+        <insert tableName="playlist">
+            <column name="id" value="4"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="5"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
