@@ -25,16 +25,12 @@ public class Playlist implements Playable {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "name", nullable = false, length = 30, unique = true)
+    @Column(name = "name", nullable = false, length = 30, unique = false)
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "song_id", nullable = false)
     private Song songs;
-
-    @Column(name = "auditions")
-    @Positive
-    private int auditions;
 
     @Override
     public void play() {
