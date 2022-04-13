@@ -132,5 +132,120 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="insert-songs" author="niatomi">
+        <insert tableName="song">
+            <column name="song_id" value="1"/>
+            <column name="name" value="One"/>
+            <column name="auditions" value="15"/>
+            <column name="artist_id" value="1"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-last-songs" author="niatomi">
+        <insert tableName="song">
+            <column name="song_id" value="2"/>
+            <column name="name" value="Master of Puppets"/>
+            <column name="auditions" value="10"/>
+            <column name="artist_id" value="1"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="3"/>
+            <column name="name" value="Money"/>
+            <column name="auditions" value="64"/>
+            <column name="artist_id" value="2"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="4"/>
+            <column name="name" value="Dystopia"/>
+            <column name="auditions" value="130"/>
+            <column name="artist_id" value="3"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="5"/>
+            <column name="name" value="Peace Sells"/>
+            <column name="auditions" value="142"/>
+            <column name="artist_id" value="3"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="6"/>
+            <column name="name" value="Stranded"/>
+            <column name="auditions" value="90"/>
+            <column name="artist_id" value="4"/>
+            <column name="genre_id" value="3"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="7"/>
+            <column name="name" value="New Found"/>
+            <column name="auditions" value="91"/>
+            <column name="artist_id" value="4"/>
+            <column name="genre_id" value="3"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="8"/>
+            <column name="name" value="Inhale"/>
+            <column name="auditions" value="145"/>
+            <column name="artist_id" value="5"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="9"/>
+            <column name="name" value="Electic Sunrises"/>
+            <column name="auditions" value="150"/>
+            <column name="artist_id" value="5"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="10"/>
+            <column name="name" value="The Dance of Eternity"/>
+            <column name="auditions" value="112"/>
+            <column name="artist_id" value="6"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+    </changeSet>
 
 </databaseChangeLog>
+
+<!--        //    @Override-->
+<!--        //    public void generate(PlaylistDAO dao) {-->
+<!--        //        List<Integer> metal = new ArrayList<>();-->
+<!--    //        List<Integer> prog = new ArrayList<>();-->
+<!--        //        List<Integer> death = new ArrayList<>();-->
+<!--            //        metal.add(10000000);-->
+<!--            //        metal.add(10000001);-->
+<!--            //        metal.add(10000003);-->
+<!--            //        metal.add(10000004);-->
+<!--            //        prog.add(10000002);-->
+<!--            //        prog.add(10000007);-->
+<!--            //        prog.add(10000008);-->
+<!--            //        prog.add(10000009);-->
+<!--            //        death.add(10000006);-->
+<!--            //        death.add(10000005);-->
+<!--            //        dao.insert(new Playlist("Metal", metal, 10));-->
+<!--            //        dao.insert(new Playlist("Progressive", prog, 10));-->
+<!--            //        dao.insert(new Playlist("Death-Metal", death, 10));-->
+<!--            //    }-->
