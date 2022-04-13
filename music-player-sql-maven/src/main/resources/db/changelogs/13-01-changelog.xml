@@ -120,7 +120,17 @@
             <column name="name" value="Prog"/>
         </insert>
     </changeSet>
-    <changeSet id="" author="">
-        <
+
+    <changeSet id="create-remix" author="niatomi">
+        <createTable tableName="remix">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="remix_pkey"/>
+            </column>
+            <column name="is_remix" type="bool">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
     </changeSet>
+
+
 </databaseChangeLog>
