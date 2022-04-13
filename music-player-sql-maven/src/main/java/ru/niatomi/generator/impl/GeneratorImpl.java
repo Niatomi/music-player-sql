@@ -30,23 +30,6 @@ public class GeneratorImpl implements Generatable {
 
     }
 
-//    @Override
-//    public void generate(ArtistDAO dao) {
-//        dao.insert(new Artist("Metallica"));
-//        dao.insert(new Artist("Pink Floyd"));
-//        dao.insert(new Artist("Megadeth"));
-//        dao.insert(new Artist("Gojira"));
-//        dao.insert(new Artist("Plini"));
-//        dao.insert(new Artist("Dream Theather"));
-//    }
-//
-//    @Override
-//    public void generate(GenreDAO dao) {
-//        dao.insert(new Genre("Metal"));
-//        dao.insert(new Genre("Rock"));
-//        dao.insert(new Genre("Death-Metal"));
-//        dao.insert(new Genre("Prog"));
-//    }
 //
 //    @Override
 //    public void generate(SongDAO dao) {
