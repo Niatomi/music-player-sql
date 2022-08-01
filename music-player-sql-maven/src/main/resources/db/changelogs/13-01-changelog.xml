@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1649847679169-1" author="playe (generated)">
+        <createTable tableName="genre">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="genre_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649847679169-2" author="playe (generated)">
+        <createTable tableName="playlist">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="playlist_pkey"/>
+            </column>
+            <column name="auditions" type="INT"/>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="song_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649847679169-3" author="playe (generated)">
+        <createTable tableName="artist">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="artist_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649847679169-4" author="playe (generated)">
+        <addUniqueConstraint columnNames="name" constraintName="uk_ctffrbu4484ft8dlsa5vmqdka" tableName="genre"/>
+    </changeSet>
+    <changeSet id="1649847679169-5" author="playe (generated)">
+        <addUniqueConstraint columnNames="name" constraintName="uk_gmx0jjome08oqihtks37w0lea" tableName="playlist"/>
+    </changeSet>
+    <changeSet id="1649847679169-6" author="playe (generated)">
+        <addUniqueConstraint columnNames="name" constraintName="uk_r03a96lqhsb7djq2tn4rq60vn" tableName="artist"/>
+    </changeSet>
+    <changeSet id="1649847679169-7" author="playe (generated)">
+        <createTable tableName="song">
+            <column autoIncrement="true" name="song_id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="song_pkey"/>
+            </column>
+            <column name="auditions" type="INT"/>
+            <column name="name" type="VARCHAR(30)"/>
+            <column name="artist_id" type="INT"/>
+            <column name="genre_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1649847679169-8" author="playe (generated)">
+        <addForeignKeyConstraint baseColumnNames="genre_id" baseTableName="song"
+                                 constraintName="fk3kr980xhy18ojchq1ekbevypy" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="genre"/>
+    </changeSet>
+    <changeSet id="1649847679169-9" author="playe (generated)">
+        <addForeignKeyConstraint baseColumnNames="artist_id" baseTableName="song"
+                                 constraintName="fka21ft97nj7thwrp5d31xdaxr" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="artist"/>
+    </changeSet>
+    <changeSet id="1649847679169-10" author="playe (generated)">
+        <addForeignKeyConstraint baseColumnNames="song_id" baseTableName="playlist"
+                                 constraintName="fki46m9yffq6oehh5wmndp9du4h" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="song_id" referencedTableName="song"/>
+    </changeSet>
+    <changeSet id="insert-data" author="niatomi" context="test">
+        <insert tableName="artist">
+            <column name="id" value="1"/>
+            <column name="name" value="Metallica"/>
+        </insert>
+        <insert tableName="artist">
+            <column name="id" value="2"/>
+            <column name="name" value="Pink Floyd"/>
+        </insert>
+        <insert tableName="artist">
+            <column name="id" value="3"/>
+            <column name="name" value="Megadeth"/>
+        </insert>
+    </changeSet>
+    <changeSet id="insert-data1" author="niatomi" context="test">
+        <insert tableName="artist">
+            <column name="id" value="4"/>
+            <column name="name" value="Gojira"/>
+        </insert>
+        <insert tableName="artist">
+            <column name="id" value="5"/>
+            <column name="name" value="Plini"/>
+        </insert>
+        <insert tableName="artist">
+            <column name="id" value="6"/>
+            <column name="name" value="Dream Theather"/>
+        </insert>
+    </changeSet>
+    <changeSet id="insert-genre" author="niatomi">
+        <insert tableName="genre">
+            <column name="id" value="1"/>
+            <column name="name" value="Metal"/>
+        </insert>
+        <insert tableName="genre">
+            <column name="id" value="2"/>
+            <column name="name" value="Rock"/>
+        </insert>
+        <insert tableName="genre">
+            <column name="id" value="3"/>
+            <column name="name" value="Death-Metal"/>
+        </insert>
+        <insert tableName="genre">
+            <column name="id" value="4"/>
+            <column name="name" value="Prog"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="create-remix" author="niatomi">
+        <createTable tableName="remix">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="remix_pkey"/>
+            </column>
+            <column name="is_remix" type="bool">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="insert-songs" author="niatomi">
+        <insert tableName="song">
+            <column name="song_id" value="1"/>
+            <column name="name" value="One"/>
+            <column name="auditions" value="15"/>
+            <column name="artist_id" value="1"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insert-last-songs" author="niatomi">
+        <insert tableName="song">
+            <column name="song_id" value="2"/>
+            <column name="name" value="Master of Puppets"/>
+            <column name="auditions" value="10"/>
+            <column name="artist_id" value="1"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="3"/>
+            <column name="name" value="Money"/>
+            <column name="auditions" value="64"/>
+            <column name="artist_id" value="2"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="4"/>
+            <column name="name" value="Dystopia"/>
+            <column name="auditions" value="130"/>
+            <column name="artist_id" value="3"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="5"/>
+            <column name="name" value="Peace Sells"/>
+            <column name="auditions" value="142"/>
+            <column name="artist_id" value="3"/>
+            <column name="genre_id" value="1"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="6"/>
+            <column name="name" value="Stranded"/>
+            <column name="auditions" value="90"/>
+            <column name="artist_id" value="4"/>
+            <column name="genre_id" value="3"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="7"/>
+            <column name="name" value="New Found"/>
+            <column name="auditions" value="91"/>
+            <column name="artist_id" value="4"/>
+            <column name="genre_id" value="3"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="8"/>
+            <column name="name" value="Inhale"/>
+            <column name="auditions" value="145"/>
+            <column name="artist_id" value="5"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="9"/>
+            <column name="name" value="Electic Sunrises"/>
+            <column name="auditions" value="150"/>
+            <column name="artist_id" value="5"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+        <insert tableName="song">
+            <column name="song_id" value="10"/>
+            <column name="name" value="The Dance of Eternity"/>
+            <column name="auditions" value="112"/>
+            <column name="artist_id" value="6"/>
+            <column name="genre_id" value="4"/>
+            <column name="is_remix" value="false"/>
+            <column name="dtype" value="false"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="delete-auditions-column-in-playlist" author="niatomi">
+        <dropColumn tableName="playlist" columnName="auditions"/>
+    </changeSet>
+    
+    <changeSet id="change-song_id-unique" author="niatomi">
+      <dropColumn tableName="playlist" columnName="name"/>
+        <addColumn tableName="playlist">
+            <column name="name" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+
+    </changeSet>
+
+    <changeSet id="insert-playlist-data" author="niatomi">
+        <insert tableName="playlist">
+            <column name="id" value="1"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="1"/>
+        </insert>
+        <insert tableName="playlist">
+            <column name="id" value="2"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="2"/>
+        </insert>
+        <insert tableName="playlist">
+            <column name="id" value="3"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="4"/>
+        </insert>
+        <insert tableName="playlist">
+            <column name="id" value="4"/>
+            <column name="name" value="Metal"/>
+            <column name="song_id" value="5"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
